@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title>Игра</title>
+</head>
+<body>
+    <ul>
+        {% for player in players %}
+            <li>{{ player.name }}: {{ player.score }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
