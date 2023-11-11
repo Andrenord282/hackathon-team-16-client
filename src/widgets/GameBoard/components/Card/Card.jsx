@@ -1,17 +1,15 @@
 import classNames from "classnames";
-import { useState } from "react";
 
 import cover from "assets/img/cover.jpg";
 
 import "./Card.scss";
 
 const Card = (props) => {
-    const { id, src, descr, firstCard, secondCard, onClickFlipCard } = props;
-    const [isFlipped, setIsFlipped] = useState(false);
+    const { id, src, descr, firstCard, secondCard, openedCardsLis, onClickFlipCard } = props;
 
     const setClassFpliped = classNames({
-        flipped: (firstCard.id === id) | (secondCard.id === id),
-        "": !isFlipped,
+        flipped: (firstCard.id === id) | (secondCard.id === id) | (openedCardsLis[id] === id),
+        "": (firstCard.id !== id) | (secondCard.id !== id) | (openedCardsLis[id] !== id),
     });
 
     return (

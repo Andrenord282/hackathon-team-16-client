@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const useToggleCardModal = () => {
-    const [isOpenCardModal, setIsOpenCardModal] = useState(false);
+    const [isOpenCardModal, setOpenCardModal] = useState(false);
 
-    return { isOpenCardModal, setIsOpenCardModal };
+    return { isOpenCardModal, setOpenCardModal };
 };
 
 export { useToggleCardModal };

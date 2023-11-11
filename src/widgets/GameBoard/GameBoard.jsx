@@ -13,9 +13,11 @@ const GameBoard = () => {
         countdownTimer,
         cardsListСompiled,
         isOpenCardModal,
-        setIsOpenCardModal,
+        setOpenCardModal,
+        movesCount,
         firstCard,
         secondCard,
+        openedCardsList,
         winnerCardDescr,
         onClickFlipCard,
     } = useGameBoardState();
@@ -26,6 +28,7 @@ const GameBoard = () => {
                 <div className="game-board__head">
                     <h2 className="game-board__title">Memory Game</h2>
                     <GameStatistics
+                        movesCount={movesCount}
                         elapsedTimer={elapsedTimer}
                         countdownTimer={countdownTimer}
                         className="game-board__statistics"
@@ -44,13 +47,14 @@ const GameBoard = () => {
                                     descr={descr}
                                     firstCard={firstCard}
                                     secondCard={secondCard}
+                                    openedCardsLis={openedCardsList}
                                     onClickFlipCard={onClickFlipCard}
                                 />
                             );
                         })}
                 </div>
                 <button className="game-board__reset-btn">Начать заново</button>
-                <Modal isOpen={isOpenCardModal} onClose={() => setIsOpenCardModal(false)}>
+                <Modal isOpen={isOpenCardModal} onClose={() => setOpenCardModal(false)}>
                     <WinnerItem winnerCardDescr={winnerCardDescr} />
                 </Modal>
             </div>

@@ -1,29 +1,44 @@
 const { useState, useEffect } = require("react");
 
-const useCardHandler = (setIsOpenCardModal) => {
+const useCardHandler = (setOpenCardModal) => {
+    const [movesCount, setMovesCount] = useState(0);
+    const [isActiveClick, setActiveClick] = useState(true);
     const [firstCard, setFirstCard] = useState({ id: null, descr: null });
     const [secondCard, setSecondCard] = useState({ id: null, descr: null });
+    const [openedCardsList, setOpenedCardsList] = useState({});
     const [winnerCardDescr, setwinnerCardDescr] = useState({ id: null, descr: null });
 
     useEffect(() => {
         switch (true) {
             case firstCard.id && secondCard.id && firstCard.descr === secondCard.descr:
                 setwinnerCardDescr({ id: firstCard.id, descr: firstCard.descr });
-                setIsOpenCardModal(true);
+                setOpenCardModal(true);
+                setMovesCount((prevCount) => prevCount + 1);
+                setOpenedCardsList({
+                    ...openedCardsList,
+                    [firstCard.id]: firstCard.id,
+                    [secondCard.id]: secondCard.id,
+                });
+                setFirstCard({ id: null, descr: null });
+                setSecondCard({ id: null, descr: null });
                 break;
             case firstCard.id && secondCard.id && firstCard.descr !== secondCard.descr:
+                setActiveClick(false);
                 setTimeout(() => {
                     setFirstCard({ id: null, descr: null });
                     setSecondCard({ id: null, descr: null });
+                    setActiveClick(true);
+                    setMovesCount((prevCount) => prevCount + 1);
                 }, 600);
                 break;
 
             default:
                 break;
         }
-    }, [firstCard.id, secondCard.id, firstCard.descr, secondCard.descr, setIsOpenCardModal]);
+    }, [firstCard.id, secondCard.id, firstCard.descr, secondCard.descr, setOpenCardModal]);
 
     const onClickFlipCard = (e) => {
+        if (!isActiveClick) return;
         const card = e.currentTarget;
         const id = card.dataset.btnId;
         const descr = card.dataset.btnDescr;
@@ -49,8 +64,10 @@ const useCardHandler = (setIsOpenCardModal) => {
     };
 
     return {
+        movesCount,
         firstCard,
         secondCard,
+        openedCardsList,
         winnerCardDescr,
         onClickFlipCard,
     };

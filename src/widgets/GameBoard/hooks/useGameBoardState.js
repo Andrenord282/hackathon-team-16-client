@@ -36,8 +36,8 @@ const useGameBoardState = () => {
     const gameСountdownTimer = useSelector(selectGameСountdownTimer);
     const [elapsedTimer, setElapsedTimer] = useState(0);
     const [countdownTimer, setCountdownTimer] = useState(0);
-    const { isOpenCardModal, setIsOpenCardModal } = useToggleCardModal();
-    const { firstCard, secondCard, winnerCardDescr, onClickFlipCard } = useCardHandler(setIsOpenCardModal);
+    const { isOpenCardModal, setOpenCardModal } = useToggleCardModal();
+    const { movesCount, firstCard, secondCard,openedCardsList, winnerCardDescr, onClickFlipCard } = useCardHandler(setOpenCardModal);
 
     useEffect(() => {
         let intervalId;
@@ -68,9 +68,11 @@ const useGameBoardState = () => {
         countdownTimer,
         cardsListСompiled,
         isOpenCardModal,
-        setIsOpenCardModal,
+        setOpenCardModal,
+        movesCount,
         firstCard,
         secondCard,
+        openedCardsList,
         winnerCardDescr,
         onClickFlipCard,
     };
