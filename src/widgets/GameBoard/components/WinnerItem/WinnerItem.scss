@@ -1,11 +1,47 @@
 .winner-item {
-    padding: 30px;
-    background-color: #fff;
+    max-width: 800px;
+    padding: 46px 44px;
+    border-radius: 20px;
+    border: 10px solid #e47c98;
+    background: #fff;
 }
 
 .winner-item__title {
-    font-size: 26px;
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 30px;
 }
+
 .winner-item__text {
-    font-size: 20px;
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.winner-item__text:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.winner-item__btn {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    margin-top: 52px;
+    color: #fff;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    padding: 10px;
+    line-height: normal;
+    border-radius: 10px;
+    background: #e47c98;
+    margin-left: auto;
 }

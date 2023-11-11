@@ -9,7 +9,6 @@ import "./GameBoard.scss";
 
 const GameBoard = () => {
     const {
-        gameFieldSize,
         gameСountdownTimer,
         elapsedTimer,
         countdownTimer,
@@ -22,6 +21,7 @@ const GameBoard = () => {
         openedCardsList,
         winnerCardDescr,
         onClickFlipCard,
+        onClickResetGame,
     } = useGameBoardState();
 
     return (
@@ -30,14 +30,16 @@ const GameBoard = () => {
                 <div className="game-board__head">
                     <div className="game-board__head-descr">
                         <h2 className="game-board__title">Memory Game</h2>
-                        <Link to={"/game"} className="game-board__link">
+                        <Link to={"/raitng"} className="game-board__link">
                             Рейтинг
                         </Link>
-                        <Link to={"/game"} className="game-board__link">
+                        <Link to={"/about-us"} className="game-board__link">
                             О проекте
                         </Link>
                     </div>
-                    <button className="game-board__reset-btn">Начать заново</button>
+                    <button className="game-board__reset-btn" onClick={onClickResetGame}>
+                        Начать заново
+                    </button>
                 </div>
                 <div className="game-board__body">
                     <div className="game-board__card-list">
@@ -68,8 +70,8 @@ const GameBoard = () => {
                     />
                 </div>
 
-                <Modal isOpen={isOpenCardModal} onClose={() => setOpenCardModal(false)}>
-                    <WinnerItem winnerCardDescr={winnerCardDescr} />
+                <Modal isOpen={isOpenCardModal}>
+                    <WinnerItem winnerCardDescr={winnerCardDescr} setOpenCardModal={setOpenCardModal} />
                 </Modal>
             </div>
         </div>

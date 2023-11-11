@@ -11,16 +11,19 @@ const useCardHandler = (setOpenCardModal) => {
     useEffect(() => {
         switch (true) {
             case firstCard.id && secondCard.id && firstCard.descr === secondCard.descr:
-                setwinnerCardDescr({ id: firstCard.id, descr: firstCard.descr });
-                setOpenCardModal(true);
-                setMovesCount((prevCount) => prevCount + 1);
-                setOpenedCardsList({
-                    ...openedCardsList,
-                    [firstCard.id]: firstCard.id,
-                    [secondCard.id]: secondCard.id,
-                });
-                setFirstCard({ id: null, descr: null });
-                setSecondCard({ id: null, descr: null });
+                setTimeout(() => {
+                    setwinnerCardDescr({ id: firstCard.id, descr: firstCard.descr });
+                    setOpenCardModal(true);
+                    setMovesCount((prevCount) => prevCount + 1);
+                    setOpenedCardsList({
+                        ...openedCardsList,
+                        [firstCard.id]: firstCard.id,
+                        [secondCard.id]: secondCard.id,
+                    });
+                    setFirstCard({ id: null, descr: null });
+                    setSecondCard({ id: null, descr: null });
+                }, 800);
+
                 break;
             case firstCard.id && secondCard.id && firstCard.descr !== secondCard.descr:
                 setActiveClick(false);
@@ -65,11 +68,15 @@ const useCardHandler = (setOpenCardModal) => {
 
     return {
         movesCount,
+        setMovesCount,
         firstCard,
         secondCard,
         openedCardsList,
         winnerCardDescr,
         onClickFlipCard,
+        setFirstCard,
+        setSecondCard,
+        setOpenedCardsList,
     };
 };
 
