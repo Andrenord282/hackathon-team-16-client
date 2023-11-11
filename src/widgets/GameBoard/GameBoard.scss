@@ -13,13 +13,15 @@
 }
 
 .game-board__head {
-    width: 100%;
-    max-width: 850px;
+    align-self: flex-start;
+    margin-bottom: 56px;
+}
+
+.game-board__head-descr {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-bottom: 155px;
+    max-width: 750px;
+    margin-bottom: 20px;
 }
 
 .game-board__title {
@@ -28,8 +30,43 @@
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
-    text-align: center;
     line-height: normal;
+    margin-right: 50px;
+}
+
+.game-board__link {
+    color: #e47c98;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.game-board__link:not(:last-child) {
+    margin-right: 20px;
+}
+
+.game-board__reset-btn {
+    width: 100%;
+    max-width: 265px;
+    color: #fff;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+    border: 2px solid #e47c98;
+    background-color: #e47c98;
+    padding: 15px;
+}
+
+.game-board__body {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .game-board__statistics {
@@ -37,21 +74,9 @@
 }
 
 .game-board__card-list {
-    max-width: 830px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px 20px;
-}
-
-.game-board__reset-btn {
-    color: #000;
-    font-family: IBM Plex Sans;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: auto;
-    margin-right: auto;
 }

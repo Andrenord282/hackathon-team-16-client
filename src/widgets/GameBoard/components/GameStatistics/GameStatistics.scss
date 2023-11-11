@@ -1,9 +1,10 @@
 .game-statistics {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
 }
+
 .game-statistics__item {
     width: 100%;
     max-width: 80px;
@@ -11,13 +12,25 @@
     flex-direction: column;
     align-items: center;
 }
+
+.game-statistics__item:not(:last-child) {
+    margin-bottom: 40px;
+}
+
 .game-statistics__item-value {
     color: #000;
     font-family: IBM Plex Sans;
-    font-size: 30px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 .game-statistics__item-text {
+    color: #000;
+    text-align: center;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
 }

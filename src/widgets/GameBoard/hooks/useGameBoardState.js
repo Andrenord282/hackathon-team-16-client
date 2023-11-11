@@ -11,6 +11,10 @@ const cardsList = [
     { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
     { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
     { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
+    { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 6: Описание 6" },
+    { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 7: Описание 7" },
+    { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 8: Описание 8" },
+    { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 9: Описание 9" },
 ];
 
 const duplicatedCards = [
@@ -37,7 +41,8 @@ const useGameBoardState = () => {
     const [elapsedTimer, setElapsedTimer] = useState(0);
     const [countdownTimer, setCountdownTimer] = useState(0);
     const { isOpenCardModal, setOpenCardModal } = useToggleCardModal();
-    const { movesCount, firstCard, secondCard,openedCardsList, winnerCardDescr, onClickFlipCard } = useCardHandler(setOpenCardModal);
+    const { movesCount, firstCard, secondCard, openedCardsList, winnerCardDescr, onClickFlipCard } =
+        useCardHandler(setOpenCardModal);
 
     useEffect(() => {
         let intervalId;
@@ -49,7 +54,6 @@ const useGameBoardState = () => {
         const updateCountdownTimer = () => {
             setCountdownTimer((prevCountdown) => prevCountdown - 1);
         };
-        console.log(isOpenCardModal);
         if (!isOpenCardModal) {
             if (!gameСountdownTimer) {
                 intervalId = setInterval(updateElapsedTimer, 1000);
@@ -64,6 +68,7 @@ const useGameBoardState = () => {
 
     return {
         gameFieldSize,
+        gameСountdownTimer,
         elapsedTimer,
         countdownTimer,
         cardsListСompiled,

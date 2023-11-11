@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "./GameStatistics.scss";
 
 const GameStatistics = (props) => {
-    const { className, movesCount, elapsedTimer, countdownTimer } = props;
+    const { className, movesCount, elapsedTimer, countdownTimer, gameСountdownTimer } = props;
 
     return (
         <div className={`game-statistics ${classNames(className)}`}>
@@ -11,10 +11,13 @@ const GameStatistics = (props) => {
                 <span className="game-statistics__item-value">{movesCount}</span>
                 <span className="game-statistics__item-text">ходов</span>
             </div>
-
             <div className="game-statistics__item">
-                <span className="game-statistics__item-value">{elapsedTimer | countdownTimer}</span>
-                <span className="game-statistics__item-text">Время</span>
+                <span className="game-statistics__item-value">
+                    {gameСountdownTimer ? countdownTimer : elapsedTimer}
+                </span>
+                <span className="game-statistics__item-text">
+                    {gameСountdownTimer ? "осталось времени" : "прошло времени"}{" "}
+                </span>
             </div>
         </div>
     );

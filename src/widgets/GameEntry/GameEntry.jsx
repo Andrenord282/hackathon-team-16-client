@@ -5,8 +5,17 @@ import { useGameEntry } from "./hooks/useGameEntry";
 import "./GameEntry.scss";
 
 const GameEntry = () => {
-    const { onChangeInput, onClickSetFieldSize, onClickSetCountdownTimere, userName, fieldSize, countdownTimer } =
-        useGameEntry();
+    const {
+        activeStartBtn,
+        onChangeInput,
+        onClickSetFieldSize,
+        onClickSetCountdownTimere,
+        userName,
+        fieldSize,
+        countdownTimer,
+    } = useGameEntry();
+
+    const setClassActivStartBtn = classNames({ active: activeStartBtn });
 
     return (
         <div className="game-entry">
@@ -38,19 +47,19 @@ const GameEntry = () => {
                             </button>
                             <button
                                 aria-label="set-field-size"
-                                data-btn-value={12}
-                                onClick={onClickSetFieldSize}
-                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 12 })}
-                            >
-                                12
-                            </button>
-                            <button
-                                aria-label="set-field-size"
                                 data-btn-value={14}
                                 onClick={onClickSetFieldSize}
                                 className={classNames("game-entry__setting-label-btn", { active: fieldSize === 14 })}
                             >
                                 14
+                            </button>
+                            <button
+                                aria-label="set-field-size"
+                                data-btn-value={18}
+                                onClick={onClickSetFieldSize}
+                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 18 })}
+                            >
+                                18
                             </button>
                         </div>
                         <div className="game-entry__setting-set-game-item">
@@ -88,7 +97,7 @@ const GameEntry = () => {
                         </div>
                     </div>
                 </div>
-                <Link to={"/game"} className="game-entry__btn">
+                <Link to={"/game"} className={`game-entry__btn ${setClassActivStartBtn}`}>
                     Начать игру
                 </Link>
             </div>
