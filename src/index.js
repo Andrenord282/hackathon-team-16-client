@@ -5,9 +5,6 @@ import App from "App";
 import "index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const modalRoot = document.getElementById("modal-root");
 
-root.render(
- 
-        <App />
-
-);
+root.render(<App />);

@@ -1,36 +1,58 @@
-import classNames from "classnames";
 import { useGameBoardState } from "./hooks/useGameBoardState";
 import { GameStatistics } from "./components/GameStatistics/GameStatistics";
+import { Modal } from "components/Modal/Modal";
 import { Card } from "./components/Card";
+import { WinnerItem } from "./components/WinnerItem";
 
 import "./GameBoard.scss";
 
-const data = {
-    id: 1,
-    value: 1,
-};
-
 const GameBoard = () => {
-    const { gameFieldSize } = useGameBoardState();
-
-    const setClassCardList = classNames({
-        gameFieldSize: gameFieldSize === 4,
-        gameFieldSize: gameFieldSize === 5,
-        gameFieldSize: gameFieldSize === 6,
-    });
+    const {
+        gameFieldSize,
+        elapsedTimer,
+        countdownTimer,
+        cardsListСompiled,
+        isOpenCardModal,
+        setIsOpenCardModal,
+        firstCard,
+        secondCard,
+        winnerCardDescr,
+        onClickFlipCard,
+    } = useGameBoardState();
 
     return (
         <div className="game-board">
             <div className="game-board__content">
                 <div className="game-board__head">
                     <h2 className="game-board__title">Memory Game</h2>
-                    <GameStatistics className="game-board__statistics" />
+                    <GameStatistics
+                        elapsedTimer={elapsedTimer}
+                        countdownTimer={countdownTimer}
+                        className="game-board__statistics"
+                    />
                 </div>
                 <div className="game-board__card-list">
-                    {new Array(16).fill(42).map((card, index) => {
-                        return <Card key={index} gameFieldSize={4} />;
-                    })}
+                    {cardsListСompiled &&
+                        cardsListСompiled.length > 0 &&
+                        cardsListСompiled.map((card) => {
+                            const { id, src, descr } = card;
+                            return (
+                                <Card
+                                    key={id}
+                                    id={id}
+                                    src={src}
+                                    descr={descr}
+                                    firstCard={firstCard}
+                                    secondCard={secondCard}
+                                    onClickFlipCard={onClickFlipCard}
+                                />
+                            );
+                        })}
                 </div>
+                <button className="game-board__reset-btn">Начать заново</button>
+                <Modal isOpen={isOpenCardModal} onClose={() => setIsOpenCardModal(false)}>
+                    <WinnerItem winnerCardDescr={winnerCardDescr} />
+                </Modal>
             </div>
         </div>
     );

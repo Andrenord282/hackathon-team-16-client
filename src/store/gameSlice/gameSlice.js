@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     userName: "Andre",
-    gameFieldSize: 4, // 5 | 6
+    gameFieldSize: 12, // 10 | 12 | 14
     gameСountdownTimer: false, // false | 3 | 5 | 10
 };
 

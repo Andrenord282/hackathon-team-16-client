@@ -30,25 +30,25 @@ const GameEntry = () => {
                             <span className="game-entry__setting-subtitle">Количество карточек</span>
                             <button
                                 aria-label="set-field-size"
-                                data-btn-value={4}
+                                data-btn-value={10}
                                 onClick={onClickSetFieldSize}
-                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 4 })}
+                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 10 })}
                             >
                                 10
                             </button>
                             <button
                                 aria-label="set-field-size"
-                                data-btn-value={5}
+                                data-btn-value={12}
                                 onClick={onClickSetFieldSize}
-                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 5 })}
+                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 12 })}
                             >
                                 12
                             </button>
                             <button
                                 aria-label="set-field-size"
-                                data-btn-value={6}
+                                data-btn-value={14}
                                 onClick={onClickSetFieldSize}
-                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 6 })}
+                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 14 })}
                             >
                                 14
                             </button>

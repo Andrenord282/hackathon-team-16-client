@@ -1,21 +1,8 @@
 .card {
     position: relative;
+    width: 150px;
+    height: 200px;
 }
-
-.card.size-l {
-    width: 100%;
-    max-width: 25%;
-    height: 220px;
-    flex: 0 1 160px;
-}
-// .card.size-m {
-//     width: 130px;
-//     height: 160px;
-// }
-// .card.size-s {
-//     width: calc(160px - 40%);
-//     height: calc(220px - 40%);
-// }
 
 .card__cover {
     position: absolute;
