@@ -1,0 +1,60 @@
+.card {
+    position: relative;
+}
+
+.card.size-l {
+    width: 100%;
+    max-width: 25%;
+    height: 220px;
+    flex: 0 1 160px;
+}
+// .card.size-m {
+//     width: 130px;
+//     height: 160px;
+// }
+// .card.size-s {
+//     width: calc(160px - 40%);
+//     height: calc(220px - 40%);
+// }
+
+.card__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform 0.3s linear;
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.card__cover img {
+    width: 100%;
+    height: 100%;
+}
+
+.card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform 0.3s linear;
+    transform: perspective(600px) rotateY(180deg);
+    background-color: #f1f1f1;
+}
+
+.card__content img {
+    width: 100%;
+    height: 100%;
+}
+
+.card.flipped > .card__cover {
+    transform: perspective(600px) rotateY(-180deg);
+}
+.card.flipped > .card__content {
+    transform: perspective(600px) rotateY(0deg);
+}

@@ -1,0 +1,126 @@
+.game-entry {
+    width: 100%;
+    max-width: 700px;
+    padding: 72px 105px 62px 105px;
+    background-color: #f7f4f2;
+}
+
+.game-entry__content {
+}
+
+.game-entry__title {
+    color: #e47c98;
+    font-family: Yeasty Flavors;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-entry__descr {
+    font-family: "IBM Plex Sans", sans-serif;
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+.game-entry__setting {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.game-entry__setting-subtitle {
+    display: block;
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.game-entry__setting-set-user {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.game-entry__setting-input {
+    max-width: 320px;
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #f4d4cb;
+    background: #fff;
+}
+
+.game-entry__setting-set-game {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-entry__setting-set-game-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 16px;
+}
+
+.game-entry__setting-set-game-item .game-entry__setting-subtitle {
+    width: 100%;
+}
+
+.game-entry__setting-label-btn {
+    cursor: pointer;
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid #f4d4cb;
+    background: #fff;
+}
+
+.game-entry__setting-label-btn.active {
+    border: 2px solid #e47c98;
+}
+
+.game-entry__setting-input-btn {
+    display: none;
+}
+
+.game-entry__btn {
+    width: 100%;
+    max-width: 488px;
+    display: block;
+    color: #fff;
+    font-family: IBM Plex Sans;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+    background: #e47c98;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    padding: 10px;
+}

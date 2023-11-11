@@ -1,0 +1,23 @@
+.game-statistics {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.game-statistics__item {
+    width: 100%;
+    max-width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game-statistics__item-value {
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.game-statistics__item-text {
+}

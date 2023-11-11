@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "YourFontName";
+    src: url("assets/fonts/YeastyFlavorsRegular.ttf") format("ttf"); /* Укажите путь к вашему файлу шрифта */
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.app {
+    font-family: "YourFontName";
+    width: 100vw;
+    height: 100vh;
+
+}
