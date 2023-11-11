@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { Link } from "react-router-dom";
-import { useGameEntry } from "./hooks/useGameEntry";
+import { useGameEntryState } from "./hooks/useGameEntryState";
 
 import "./GameEntry.scss";
 
@@ -10,10 +10,10 @@ const GameEntry = () => {
         onChangeInput,
         onClickSetFieldSize,
         onClickSetCountdownTimere,
-        userName,
-        fieldSize,
-        countdownTimer,
-    } = useGameEntry();
+        player,
+        gameFieldSize,
+        gameСountdownTimer,
+    } = useGameEntryState();
 
     const setClassActivStartBtn = classNames({ active: activeStartBtn });
 
@@ -28,7 +28,7 @@ const GameEntry = () => {
                     <div className="game-entry__setting-set-user">
                         <span className="game-entry__setting-subtitle">Как тебя называть?</span>
                         <input
-                            value={userName}
+                            value={player}
                             onChange={onChangeInput}
                             type="text"
                             className="game-entry__setting-input"
@@ -41,7 +41,9 @@ const GameEntry = () => {
                                 aria-label="set-field-size"
                                 data-btn-value={10}
                                 onClick={onClickSetFieldSize}
-                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 10 })}
+                                className={classNames("game-entry__setting-label-btn", {
+                                    active: gameFieldSize === 10,
+                                })}
                             >
                                 10
                             </button>
@@ -49,7 +51,9 @@ const GameEntry = () => {
                                 aria-label="set-field-size"
                                 data-btn-value={14}
                                 onClick={onClickSetFieldSize}
-                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 14 })}
+                                className={classNames("game-entry__setting-label-btn", {
+                                    active: gameFieldSize === 14,
+                                })}
                             >
                                 14
                             </button>
@@ -57,7 +61,9 @@ const GameEntry = () => {
                                 aria-label="set-field-size"
                                 data-btn-value={18}
                                 onClick={onClickSetFieldSize}
-                                className={classNames("game-entry__setting-label-btn", { active: fieldSize === 18 })}
+                                className={classNames("game-entry__setting-label-btn", {
+                                    active: gameFieldSize === 18,
+                                })}
                             >
                                 18
                             </button>
@@ -69,7 +75,7 @@ const GameEntry = () => {
                                 data-btn-value={false}
                                 onClick={onClickSetCountdownTimere}
                                 className={classNames("game-entry__setting-label-btn", {
-                                    active: countdownTimer === false,
+                                    active: gameСountdownTimer === false,
                                 })}
                             >
                                 Нет
@@ -79,7 +85,7 @@ const GameEntry = () => {
                                 data-btn-value={3}
                                 onClick={onClickSetCountdownTimere}
                                 className={classNames("game-entry__setting-label-btn", {
-                                    active: countdownTimer === 3,
+                                    active: gameСountdownTimer === 3,
                                 })}
                             >
                                 3 мин
@@ -89,7 +95,7 @@ const GameEntry = () => {
                                 data-btn-value={5}
                                 onClick={onClickSetCountdownTimere}
                                 className={classNames("game-entry__setting-label-btn", {
-                                    active: countdownTimer === 5,
+                                    active: gameСountdownTimer === 5,
                                 })}
                             >
                                 5 мин

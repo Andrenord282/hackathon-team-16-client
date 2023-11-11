@@ -1,14 +1,12 @@
 import { shuffled } from "utilities/shuffled";
 import { nanoid } from "@reduxjs/toolkit";
+import { useGameContext } from "context/useGameContext";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectGameFieldSize, selectGameСountdownTimer } from "store/gameSlice";
 import { useToggleCardModal } from "./useToggleCardModal";
 import { useCardHandler } from "./useCardHandler";
 
 const useGameBoardState = () => {
-    const gameFieldSize = useSelector(selectGameFieldSize);
-    const gameСountdownTimer = useSelector(selectGameСountdownTimer);
+    const { gameFieldSize, gameСountdownTimer } = useGameContext();
     const [gameState, setGameState] = useState("init"); // init | reset | loaded
     const [elapsedTimer, setElapsedTimer] = useState(null);
     const [countdownTimer, setCountdownTimer] = useState(null);
@@ -87,7 +85,9 @@ const useGameBoardState = () => {
             if (!gameСountdownTimer) {
                 intervalId = setInterval(updateElapsedTimer, 1000);
             } else {
-                setCountdownTimer(gameСountdownTimer * 60);
+                if (!countdownTimer) {
+                    setCountdownTimer(gameСountdownTimer * 60);
+                }
                 intervalId = setInterval(updateCountdownTimer, 1000);
             }
         }
