@@ -10,8 +10,8 @@ const useGameBoardState = () => {
     const gameFieldSize = useSelector(selectGameFieldSize);
     const gameСountdownTimer = useSelector(selectGameСountdownTimer);
     const [gameState, setGameState] = useState("init"); // init | reset | loaded
-    const [elapsedTimer, setElapsedTimer] = useState(0);
-    const [countdownTimer, setCountdownTimer] = useState(0);
+    const [elapsedTimer, setElapsedTimer] = useState(null);
+    const [countdownTimer, setCountdownTimer] = useState(null);
     const { isOpenCardModal, setOpenCardModal } = useToggleCardModal();
     const [cardsListСompiled, setCardsListСompiled] = useState([]);
     const {
@@ -26,34 +26,34 @@ const useGameBoardState = () => {
         setSecondCard,
         setOpenedCardsList,
     } = useCardHandler(setOpenCardModal);
-    
+
+    console.log(countdownTimer);
+
     useEffect(() => {
-        if (gameState === "loaded") {
-            return;
+        if (gameState === "init" || gameState === "reset") {
+            const cardsList = [
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 1: Описание 1" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 2: Описание 2" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 6: Описание 6" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 7: Описание 7" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 8: Описание 8" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 9: Описание 9" },
+            ];
+            const duplicatedCards = [
+                ...cardsList,
+                ...cardsList.map((card) => {
+                    return { ...card, id: nanoid(5) };
+                }),
+            ];
+
+            const cardsListСompiled = shuffled(duplicatedCards);
+            setCardsListСompiled(cardsListСompiled);
+
+            setGameState("loaded");
         }
-
-        const cardsList = [
-            { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 1: Описание 1" },
-            { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 2: Описание 2" },
-            { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
-            { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
-            // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
-            // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 6: Описание 6" },
-            // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 7: Описание 7" },
-            // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 8: Описание 8" },
-            // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 9: Описание 9" },
-        ];
-        const duplicatedCards = [
-            ...cardsList,
-            ...cardsList.map((card) => {
-                return { ...card, id: nanoid(5) };
-            }),
-        ];
-
-        const cardsListСompiled = shuffled(duplicatedCards);
-        setCardsListСompiled(cardsListСompiled);
-
-        setGameState("loaded");
     }, [gameState]);
 
     const onClickResetGame = () => {
@@ -63,7 +63,9 @@ const useGameBoardState = () => {
     useEffect(() => {
         if (gameState === "reset") {
             setElapsedTimer(0);
-            setCountdownTimer(0);
+            if (gameСountdownTimer) {
+                setCountdownTimer(gameСountdownTimer * 60);
+            }
             setMovesCount(0);
             setFirstCard({ id: null, descr: null });
             setSecondCard({ id: null, descr: null });
@@ -91,7 +93,7 @@ const useGameBoardState = () => {
         }
 
         return () => clearInterval(intervalId);
-    }, [gameСountdownTimer, isOpenCardModal, elapsedTimer, countdownTimer]);
+    }, [gameСountdownTimer, isOpenCardModal]);
 
     return {
         gameFieldSize,

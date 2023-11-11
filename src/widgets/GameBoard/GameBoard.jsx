@@ -69,7 +69,6 @@ const GameBoard = () => {
                         className="game-board__statistics"
                     />
                 </div>
-
                 <Modal isOpen={isOpenCardModal}>
                     <WinnerItem winnerCardDescr={winnerCardDescr} setOpenCardModal={setOpenCardModal} />
                 </Modal>

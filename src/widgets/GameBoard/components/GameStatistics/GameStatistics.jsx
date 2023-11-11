@@ -13,7 +13,7 @@ const GameStatistics = (props) => {
             </div>
             <div className="game-statistics__item">
                 <span className="game-statistics__item-value">
-                    {gameСountdownTimer ? countdownTimer : elapsedTimer}
+                    {!countdownTimer && !elapsedTimer ? 0 : countdownTimer ? countdownTimer : elapsedTimer}
                 </span>
                 <span className="game-statistics__item-text">
                     {gameСountdownTimer ? "осталось времени" : "прошло времени"}{" "}
