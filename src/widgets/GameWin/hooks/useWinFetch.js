@@ -9,7 +9,7 @@ const useWinFetch = (player, elapsedTimer, movesCount) => {
         moves_taken: movesCount,
     };
 
-    postFetch("games/9/end_game/", body);
+    postFetch("games/9/end_game/", body); // тут вмето 9 должен быть айдишник с игрой, не успели сделать
 };
 
 export { useWinFetch };
