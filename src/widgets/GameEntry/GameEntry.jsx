@@ -6,6 +6,7 @@ import "./GameEntry.scss";
 
 const GameEntry = () => {
     const {
+        userNameInputRef,
         activeStartBtn,
         onChangeInput,
         onClickSetFieldSize,
@@ -28,6 +29,7 @@ const GameEntry = () => {
                     <div className="game-entry__setting-set-user">
                         <span className="game-entry__setting-subtitle">Как тебя называть?</span>
                         <input
+                            ref={userNameInputRef}
                             value={player}
                             onChange={onChangeInput}
                             type="text"

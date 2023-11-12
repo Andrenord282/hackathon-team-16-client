@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { setNameTag } from "utilities/setNameTag";
+import { useEffect, useState, useRef } from "react";
 import { useGameContext } from "context/useGameContext";
 
 const useGameEntryState = () => {
@@ -11,6 +12,8 @@ const useGameEntryState = () => {
         handlerSetGameСountdownTimer,
     } = useGameContext();
     const [activeStartBtn, setActiveStartBtn] = useState(false);
+    const [userNameInput, setUserNameInput] = useState("");
+    const userNameInputRef = useRef(null);
 
     useEffect(() => {
         if (!player) {
@@ -20,8 +23,23 @@ const useGameEntryState = () => {
         }
     }, [player]);
 
+    useEffect(() => {
+        if (userNameInput.length > 5 && /#\d\d\d\d$/.test(userNameInput)) {
+            const cursor = userNameInput.length - 5;
+            userNameInputRef.current.selectionStart = userNameInputRef.current.selectionEnd = cursor;
+        } else {
+            const cursor = userNameInput.length;
+            userNameInputRef.current.selectionStart = userNameInputRef.current.selectionEnd = cursor;
+        }
+    }, [userNameInput]);
+
     const onChangeInput = (e) => {
-        const inputValue = e.target.value;
+        let inputValue = e.target.value;
+
+        if (!inputValue.includes("#")) {
+            inputValue = `${inputValue}${setNameTag(4)}`;
+        }
+        setUserNameInput(inputValue);
         handlerSetPlayer(inputValue);
     };
 
@@ -39,6 +57,7 @@ const useGameEntryState = () => {
     };
 
     return {
+        userNameInputRef,
         activeStartBtn,
         onChangeInput,
         onClickSetFieldSize,

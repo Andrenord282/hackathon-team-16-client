@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { Link } from "react-router-dom";
 import { useGameBoardState } from "./hooks/useGameBoardState";
 import { Modal } from "components/Modal/Modal";
@@ -27,6 +28,11 @@ const GameBoard = () => {
         onClickResetGame,
     } = useGameBoardState();
 
+    const setClassWidthCardList = classNames({
+        "size-m": cardsListСompiled.length <= 10,
+        "size-l": cardsListСompiled.length > 10,
+    });
+
     return (
         <div className="game-board">
             <div className="game-board__content">
@@ -45,7 +51,7 @@ const GameBoard = () => {
                     </button>
                 </div>
                 <div className="game-board__body">
-                    <div className="game-board__card-list">
+                    <div className={`game-board__card-list ${setClassWidthCardList}`}>
                         {cardsListСompiled &&
                             cardsListСompiled.length > 0 &&
                             cardsListСompiled.map((card) => {
