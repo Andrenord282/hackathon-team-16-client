@@ -20,7 +20,7 @@ const useTimers = (gameСountdownTimer, isOpenCardModal) => {
             elapsedTimerID = setInterval(updateElapsedTimer, 1000);
             if (gameСountdownTimer) {
                 if (countdownTimer == null) {
-                    setCountdownTimer(0.1 * 60);
+                    setCountdownTimer(gameСountdownTimer * 60);
                 } else if (countdownTimer === 0) {
                     clearInterval(countdownTimerID);
                 } else {
