@@ -8,8 +8,8 @@
 ## Стек проекта
 
 - backend состовляющая Python, Django, Django Rest Framework
-- fronсоставляющая JavaScript, основы TypeScript, React, Redux toolkit, REST API
-- 
+- fronend составляющая JavaScript, основы TypeScript, React, Redux toolkit, REST API
+
 ## Описание проекта
 
 - Memory Game – карточная игра, в которой нужно попарно собрать все карточки.
