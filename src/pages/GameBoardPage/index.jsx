@@ -1,0 +1,1 @@
+export { GameBoardPage } from "./GameBoardPage";

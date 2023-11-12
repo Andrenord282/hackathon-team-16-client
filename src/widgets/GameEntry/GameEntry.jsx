@@ -103,7 +103,7 @@ const GameEntry = () => {
                         </div>
                     </div>
                 </div>
-                <Link to={"/game"} className={`game-entry__btn ${setClassActivStartBtn}`}>
+                <Link to={"/game-board"} className={`game-entry__btn ${setClassActivStartBtn}`}>
                     Начать игру
                 </Link>
             </div>

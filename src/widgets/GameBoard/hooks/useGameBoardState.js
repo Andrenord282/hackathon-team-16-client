@@ -2,11 +2,13 @@ import { shuffled } from "utilities/shuffled";
 import { nanoid } from "@reduxjs/toolkit";
 import { useGameContext } from "context/useGameContext";
 import { useEffect, useState } from "react";
+import { useFetch } from "hooks/useFetch";
 import { useToggleCardModal } from "./useToggleCardModal";
 import { useCardHandler } from "./useCardHandler";
 
 const useGameBoardState = () => {
-    const { gameFieldSize, gameСountdownTimer } = useGameContext();
+    const { player, gameFieldSize, gameСountdownTimer } = useGameContext();
+    const { postFetch, getFetch } = useFetch();
     const [gameState, setGameState] = useState("init"); // init | reset | loaded
     const [elapsedTimer, setElapsedTimer] = useState(null);
     const [countdownTimer, setCountdownTimer] = useState(null);
@@ -25,7 +27,16 @@ const useGameBoardState = () => {
         setOpenedCardsList,
     } = useCardHandler(setOpenCardModal);
 
-    console.log(countdownTimer);
+    const cardListFetch = async () => {
+        const body = { player, cards_quantity: gameFieldSize };
+
+        const cardList = await postFetch(
+            "https://www.toptal.com/developers/postbin/1699728673203-7364212437532",
+            "games",
+            body
+        );
+    };
+    cardListFetch();
 
     useEffect(() => {
         if (gameState === "init" || gameState === "reset") {
@@ -34,7 +45,7 @@ const useGameBoardState = () => {
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 2: Описание 2" },
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
                 // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 6: Описание 6" },
                 // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 7: Описание 7" },
                 // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 8: Описание 8" },

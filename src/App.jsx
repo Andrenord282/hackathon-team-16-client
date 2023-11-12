@@ -1,22 +1,22 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Home } from "pages/Home";
-import { Game } from "pages/Game";
-import { Provider } from "react-redux";
-import store from "store/store";
 import { GameContextProvider } from "context/useGameContext";
+import { GameEntryPage } from "pages/GameEntryPage";
+import { GameBoardPage } from "pages/GameBoardPage";
+import { GameRatingPage } from "pages/GameRatingPage";
+import { GameAboutUsPage } from "pages/GameAboutUsPage";
 
 function App() {
     return (
         <div className="app">
             <GameContextProvider>
-                <Provider store={store}>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/game" element={<Game />} />
-                        </Routes>
-                    </BrowserRouter>
-                </Provider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<GameEntryPage />} />
+                        <Route path="/game-board" element={<GameBoardPage />} />
+                        <Route path="/game-rating" element={<GameRatingPage />} />
+                        <Route path="/game-about-us" element={<GameAboutUsPage />} />
+                    </Routes>
+                </BrowserRouter>
             </GameContextProvider>
         </div>
     );

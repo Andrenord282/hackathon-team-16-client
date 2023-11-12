@@ -1,0 +1,1 @@
+export { GameRatingPage } from "./GameRatingPage";

@@ -1,4 +1,4 @@
-.home {
+.game-entry-page {
     width: 100%;
     height: 100%;
     display: flex;
@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-.home__container {
+.game-entry-page__container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,5 +20,5 @@
     margin: 0 auto;
 }
 
-.home__content {
+.game-entry-page__content {
 }
