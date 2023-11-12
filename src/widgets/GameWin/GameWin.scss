@@ -1,29 +1,57 @@
 .game-win {
     width: 100%;
     max-width: 700px;
-    padding: 72px 105px 62px 105px;
-    background-color: #f7f4f2;
+    padding: 30px 40px 40px 40px;
+    border-radius: 20px;
+    border: 10px solid #e47c98;
+    background: #fff;
 }
 
 .game-win__content {
 }
 
+.game-win__cat-img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+
 .game-win__title {
     color: #e47c98;
     font-family: Yeasty Flavors;
-    font-size: 50px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+.game-win__descr {
+    margin-bottom: 50px;
+}
+
+.game-win__descr-text {
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.game-win__descr-text a {
+    color: #e47c98;
+    font-size: inherit;
 }
 
 .game-win__statistics {
+    max-width: 300px;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 0 auto;
     margin-bottom: 30px;
     gap: 0 20px;
 }
@@ -60,11 +88,11 @@
 
 .game-win____btn {
     width: 100%;
-    max-width: 488px;
+    max-width: 288px;
     display: block;
     color: #fff;
     font-family: IBM Plex Sans;
-    font-size: 40px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
