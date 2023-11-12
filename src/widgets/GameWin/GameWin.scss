@@ -1,4 +1,81 @@
 .game-win {
+    width: 100%;
+    max-width: 700px;
+    padding: 72px 105px 62px 105px;
+    background-color: #f7f4f2;
 }
+
 .game-win__content {
+}
+
+.game-win__title {
+    color: #e47c98;
+    font-family: Yeasty Flavors;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-win__statistics {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 0 20px;
+}
+
+.game-win__statistics-item {
+    flex: 0 1 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px 0;
+}
+
+.game-win__statistics-item-value {
+    display: block;
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.game-win__statistics-item-text {
+    display: block;
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.game-win____btn {
+    width: 100%;
+    max-width: 488px;
+    display: block;
+    color: #fff;
+    font-family: IBM Plex Sans;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+    background: #e47c98;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.game-win____btn:not(:last-child) {
+    margin-bottom: 20px;
 }
