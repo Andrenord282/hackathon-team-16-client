@@ -128,9 +128,28 @@
     pointer-events: none;
     margin: 0 auto;
     padding: 10px;
+    margin-bottom: 15px;
 }
 
 .game-entry__btn.active {
     opacity: 1;
     pointer-events: auto;
+}
+
+.game-entry__footer {
+    display: flex;
+    justify-content: center;
+}
+
+.game-entry__footer-link {
+    color: #e47c98;
+    font-family: IBM Plex Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.game-entry__footer-link:not(:last-child) {
+    margin-right: 15px;
 }

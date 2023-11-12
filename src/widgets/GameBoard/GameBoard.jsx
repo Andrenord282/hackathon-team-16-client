@@ -46,11 +46,13 @@ const GameBoard = () => {
             <div className="game-board__content">
                 <div className="game-board__head">
                     <div className="game-board__head-descr">
-                        <h2 className="game-board__title">Memory Game</h2>
-                        <Link to={"/raitng"} className="game-board__link">
+                        <Link to={"/"} className="game-about-us__link">
+                            <h2 className="game-board__title">Memory Game</h2>
+                        </Link>
+                        <Link to={"/game-rating"} className="game-board__link">
                             Рейтинг
                         </Link>
-                        <Link to={"/about-us"} className="game-board__link">
+                        <Link to={"/game-about-us"} className="game-board__link">
                             О проекте
                         </Link>
                     </div>

@@ -4,9 +4,9 @@ import "./GameAboutUsPage.scss";
 
 const GameAboutUsPage = () => {
     return (
-        <div className="game-about-us">
-            <div className="game-about-us__container">
-                <div className="game-about-us__content">
+        <div className="game-about-us-page">
+            <div className="game-about-us-page__container">
+                <div className="game-about-us-page__content">
                     <GameAboutUs />
                 </div>
             </div>
