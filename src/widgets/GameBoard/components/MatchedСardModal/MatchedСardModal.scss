@@ -32,10 +32,30 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-bottom: 10px;
 }
 
-.matched-card-modal__text:not(:last-child) {
-    margin-bottom: 10px;
+.matched-card-modal__list-item {
+    color: #000;
+    font-family: IBM Plex Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.matched-card-modal__list-item:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.matched-card-modal__link {
+    color: #e47c98;
+    font-family: IBM Plex Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .matched-card-modal__item-img {
@@ -43,16 +63,16 @@
     position: relative;
     width: 140px;
     height: 140px;
-    margin-top: -15px;
     margin-left: 20px;
     overflow: hidden;
+    margin-top: -64px;
 }
 
 .matched-card-modal__text-img {
     position: absolute;
-    top: 50%;
+    top: -40px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
 
 .matched-card-modal__btn {

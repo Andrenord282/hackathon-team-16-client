@@ -22,6 +22,26 @@ const MatchedСardModal = (props) => {
                                 </p>
                             );
                         })}
+                    {cardDescr &&
+                        cardDescr.checkList &&
+                        cardDescr.checkList.length > 0 &&
+                        cardDescr.checkList.map((text) => {
+                            return (
+                                <p key={text} className="matched-card-modal__list-item">
+                                    {text}
+                                </p>
+                            );
+                        })}
+                    {cardDescr &&
+                        cardDescr.links &&
+                        cardDescr.links.length > 0 &&
+                        cardDescr.links.map((text) => {
+                            return (
+                                <a href={text[1]} key={text[1]} className="matched-card-modal__link">
+                                    {text[0]}
+                                </a>
+                            );
+                        })}
                 </div>
                 <div className="matched-card-modal__item-img">
                     <img src={imgScr} className="matched-card-modal__text-img" alt="" />
