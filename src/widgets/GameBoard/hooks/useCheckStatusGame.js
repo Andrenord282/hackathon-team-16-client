@@ -19,9 +19,8 @@ const useCheckStatusGame = (
     useEffect(() => {
         if (gameState !== "loaded") return;
 
-        const totalCardsLength = cardsListСompiled.length;
+        const totalCardsLength = cardsListСompiled.length / 2;
         const openedCardsLength = Object.keys(openedCardsList).length;
-
         if (totalCardsLength === openedCardsLength) {
             setGameWinning(true);
         }

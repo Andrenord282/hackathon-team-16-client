@@ -3,33 +3,33 @@ const { useState, useEffect } = require("react");
 const useCardHandler = (setOpenCardModal) => {
     const [movesCount, setMovesCount] = useState(0);
     const [isActiveClick, setActiveClick] = useState(true);
-    const [firstCard, setFirstCard] = useState({ id: null, descr: null });
-    const [secondCard, setSecondCard] = useState({ id: null, descr: null });
+    const [firstCard, setFirstCard] = useState({ id: null, name: null });
+    const [secondCard, setSecondCard] = useState({ id: null, name: null });
     const [openedCardsList, setOpenedCardsList] = useState({});
-    const [winnerCardDescr, setwinnerCardDescr] = useState({ id: null, descr: null });
+    const [mathetCardDescr, setMathesCardDescr] = useState({ id: null, name: null });
 
     useEffect(() => {
         switch (true) {
-            case firstCard.id && secondCard.id && firstCard.descr === secondCard.descr:
+            case firstCard.id && secondCard.id && firstCard.name === secondCard.name:
                 setTimeout(() => {
-                    setwinnerCardDescr({ id: firstCard.id, descr: firstCard.descr });
+                    setMathesCardDescr({ id: firstCard.id, name: firstCard.name });
                     setOpenCardModal(true);
                     setMovesCount((prevCount) => prevCount + 1);
                     setOpenedCardsList({
                         ...openedCardsList,
-                        [firstCard.id]: firstCard.id,
-                        [secondCard.id]: secondCard.id,
+                        [firstCard.name]: firstCard.name,
+                        [secondCard.name]: secondCard.name,
                     });
-                    setFirstCard({ id: null, descr: null });
-                    setSecondCard({ id: null, descr: null });
+                    setFirstCard({ name: null });
+                    setSecondCard({ name: null });
                 }, 800);
 
                 break;
-            case firstCard.id && secondCard.id && firstCard.descr !== secondCard.descr:
+            case firstCard.id && secondCard.id && firstCard.name !== secondCard.name:
                 setActiveClick(false);
                 setTimeout(() => {
-                    setFirstCard({ id: null, descr: null });
-                    setSecondCard({ id: null, descr: null });
+                    setFirstCard({ id: null, name: null });
+                    setSecondCard({ id: null, name: null });
                     setActiveClick(true);
                     setMovesCount((prevCount) => prevCount + 1);
                 }, 600);
@@ -38,18 +38,18 @@ const useCardHandler = (setOpenCardModal) => {
             default:
                 break;
         }
-    }, [firstCard.id, secondCard.id, firstCard.descr, secondCard.descr, setOpenCardModal]);
+    }, [firstCard.id, firstCard.name, secondCard.id, secondCard.name, setOpenCardModal]);
 
     const onClickFlipCard = (e) => {
         if (!isActiveClick) return;
         const card = e.currentTarget;
         const id = card.dataset.btnId;
-        const descr = card.dataset.btnDescr;
+        const name = card.dataset.btnName;
 
         if (!firstCard.id) {
             const data = {
                 id,
-                descr,
+                name,
             };
 
             setFirstCard(data);
@@ -59,8 +59,9 @@ const useCardHandler = (setOpenCardModal) => {
         if (firstCard.id && firstCard.id !== id) {
             const data = {
                 id,
-                descr,
+                name,
             };
+
             setSecondCard(data);
             return;
         }
@@ -72,7 +73,7 @@ const useCardHandler = (setOpenCardModal) => {
         firstCard,
         secondCard,
         openedCardsList,
-        winnerCardDescr,
+        mathetCardDescr,
         onClickFlipCard,
         setFirstCard,
         setSecondCard,

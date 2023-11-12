@@ -79,11 +79,13 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 20px 20px;
+    // margin-right: 15px;
 
     &.size-m {
         max-width: 830px;
     }
 
     &.size-l {
+        max-width: 1000px;
     }
 }

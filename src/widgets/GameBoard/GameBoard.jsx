@@ -65,12 +65,12 @@ const GameBoard = () => {
                         {cardsListСompiled &&
                             cardsListСompiled.length > 0 &&
                             cardsListСompiled.map((card) => {
-                                const { id, src, descr } = card;
+                                const { id, name, descr } = card;
                                 return (
                                     <Card
                                         key={id}
                                         id={id}
-                                        src={src}
+                                        name={name}
                                         descr={descr}
                                         firstCard={firstCard}
                                         secondCard={secondCard}
