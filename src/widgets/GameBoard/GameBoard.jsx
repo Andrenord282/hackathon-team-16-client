@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useGameBoardState } from "./hooks/useGameBoardState";
 import { Modal } from "components/Modal/Modal";
@@ -30,14 +31,15 @@ const GameBoard = () => {
     } = useGameBoardState();
     const navigate = useNavigate();
     const setClassWidthCardList = classNames({
-        "size-m": cardsListСompiled.length <= 10,
+        "size-m": cardsListСompiled.length <= 14,
         "size-l": cardsListСompiled.length > 10,
     });
 
-    if (!player) {
-        navigate("/");
-        return;
-    }
+    useEffect(() => {
+        if (!player) {
+            navigate("/");
+        }
+    });
 
     return (
         <div className="game-board">

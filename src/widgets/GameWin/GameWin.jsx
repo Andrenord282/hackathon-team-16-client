@@ -1,16 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGameWinState } from "./hooks/useGameWinState";
 
 import "./GameWin.scss";
+import { useEffect } from "react";
 
 const GameWin = () => {
+    const navigate = useNavigate();
     const { player, elapsedTimer, movesCount } = useGameWinState();
+    console.log(player);
+
+    useEffect(() => {
+        if (!player) {
+            navigate("/");
+        }
+    });
 
     return (
         <div className="game-win">
             <div className="game-win__content">
                 <h1 className="game-win__title">
-                    {" "}
                     {player}, <br /> Поздравляем! <br /> Игра окончена
                 </h1>
                 <div className="game-win__statistics">
