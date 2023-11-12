@@ -8,7 +8,7 @@
 ## Стек проекта
 
 - backend состовляющая Python, Django, Django Rest Framework
-- fronend составляющая JavaScript, основы TypeScript, React, Redux toolkit, REST API
+- fronend составляющая JavaScript, React, React router dom, React context
 
 ## Описание проекта
 
