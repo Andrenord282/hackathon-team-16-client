@@ -1,3 +1,0 @@
-const useStatisticsHandler = () => {};
-
-export { useStatisticsHandler };

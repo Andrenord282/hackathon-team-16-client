@@ -1,1 +1,0 @@
-export { WinnerItem } from "./WinnerItem";

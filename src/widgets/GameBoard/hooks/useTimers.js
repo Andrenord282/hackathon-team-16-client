@@ -5,7 +5,8 @@ const useTimers = (gameСountdownTimer, isOpenCardModal) => {
     const [countdownTimer, setCountdownTimer] = useState(null);
 
     useEffect(() => {
-        let intervalId;
+        let countdownTimerID;
+        let elapsedTimerID;
 
         const updateElapsedTimer = () => {
             setElapsedTimer((prevElapsed) => prevElapsed + 1);
@@ -14,18 +15,24 @@ const useTimers = (gameСountdownTimer, isOpenCardModal) => {
         const updateCountdownTimer = () => {
             setCountdownTimer((prevCountdown) => prevCountdown - 1);
         };
+
         if (!isOpenCardModal) {
-            if (!gameСountdownTimer) {
-                intervalId = setInterval(updateElapsedTimer, 1000);
-            } else {
-                if (!countdownTimer) {
+            elapsedTimerID = setInterval(updateElapsedTimer, 1000);
+            if (gameСountdownTimer) {
+                if (countdownTimer == null) {
                     setCountdownTimer(gameСountdownTimer * 60);
+                } else if (countdownTimer === 0) {
+                    clearInterval(countdownTimerID);
+                } else {
+                    countdownTimerID = setInterval(updateCountdownTimer, 1000);
                 }
-                intervalId = setInterval(updateCountdownTimer, 1000);
             }
         }
 
-        return () => clearInterval(intervalId);
+        return () => {
+            clearInterval(countdownTimerID);
+            clearInterval(elapsedTimerID);
+        };
     }, [gameСountdownTimer, countdownTimer, isOpenCardModal]);
 
     return {

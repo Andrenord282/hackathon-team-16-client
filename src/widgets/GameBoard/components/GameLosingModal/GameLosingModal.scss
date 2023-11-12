@@ -1,4 +1,4 @@
-.winner-item {
+.game-losing-modal {
     max-width: 800px;
     padding: 46px 44px;
     border-radius: 20px;
@@ -6,7 +6,7 @@
     background: #fff;
 }
 
-.winner-item__title {
+.game-losing-modal__title {
     color: #000;
     font-family: IBM Plex Sans;
     font-size: 30px;
@@ -16,7 +16,7 @@
     margin-bottom: 30px;
 }
 
-.winner-item__text {
+.game-losing-modal__text {
     color: #000;
     font-family: IBM Plex Sans;
     font-size: 26px;
@@ -25,11 +25,11 @@
     line-height: normal;
 }
 
-.winner-item__text:not(:last-child) {
+.game-losing-modal__text:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.winner-item__btn {
+.game-losing-modal__btn {
     display: block;
     width: 100%;
     max-width: 240px;
@@ -39,6 +39,7 @@
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
+    text-align: center;
     padding: 10px;
     line-height: normal;
     border-radius: 10px;

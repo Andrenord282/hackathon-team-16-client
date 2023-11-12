@@ -3,7 +3,8 @@ import { useGameBoardState } from "./hooks/useGameBoardState";
 import { Modal } from "components/Modal/Modal";
 import { GameStatistics } from "./components/GameStatistics/GameStatistics";
 import { Card } from "./components/Card";
-import { WinnerItem } from "./components/WinnerItem";
+import { MatchedСardModal } from "./components/MatchedСardModal";
+import { GameLosingModal } from "./components/GameLosingModal";
 
 import "./GameBoard.scss";
 
@@ -13,8 +14,10 @@ const GameBoard = () => {
         elapsedTimer,
         countdownTimer,
         cardsListСompiled,
-        isOpenCardModal,
-        setOpenCardModal,
+        openMatchedCardModal,
+        setOpenMatchedCardModal,
+        openGameLosingModal,
+        setOpenGameLosingModal,
         movesCount,
         firstCard,
         secondCard,
@@ -69,8 +72,17 @@ const GameBoard = () => {
                         className="game-board__statistics"
                     />
                 </div>
-                <Modal isOpen={isOpenCardModal}>
-                    <WinnerItem winnerCardDescr={winnerCardDescr} setOpenCardModal={setOpenCardModal} />
+                <Modal isOpen={openMatchedCardModal}>
+                    <MatchedСardModal
+                        winnerCardDescr={winnerCardDescr}
+                        setOpenMatchedCardModal={setOpenMatchedCardModal}
+                    />
+                </Modal>
+                <Modal isOpen={openGameLosingModal}>
+                    <GameLosingModal
+                        setOpenGameLosingModal={setOpenGameLosingModal}
+                        onClickResetGame={onClickResetGame}
+                    />
                 </Modal>
             </div>
         </div>

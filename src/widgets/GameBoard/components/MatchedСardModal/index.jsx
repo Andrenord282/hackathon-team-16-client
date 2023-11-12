@@ -1,0 +1,1 @@
+export { MatchedСardModal } from "./MatchedСardModal";

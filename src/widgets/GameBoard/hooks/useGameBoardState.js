@@ -4,20 +4,24 @@ import { useGameContext } from "context/useGameContext";
 import { useEffect, useState } from "react";
 import { useFetch } from "hooks/useFetch";
 import { useTimers } from "./useTimers";
-import { useToggleCardModal } from "./useToggleCardModal";
+import { useToggleMatchedCardModal } from "./useToggleMatchedCardModal";
 import { useCardHandler } from "./useCardHandler";
 import { useResetGame } from "./useResetGame";
+import { useCheckStatusGame } from "./useCheckStatusGame";
+import { useToggleGameLosingModal } from "./useToggleGameLosingModal";
 
 const useGameBoardState = () => {
     const { player, gameFieldSize, gameСountdownTimer } = useGameContext();
     const { postFetch, getFetch } = useFetch();
     const [gameState, setGameState] = useState("init"); // init | reset | loaded
-    const { isOpenCardModal, setOpenCardModal } = useToggleCardModal();
+    const { openMatchedCardModal, setOpenMatchedCardModal } = useToggleMatchedCardModal();
+    const { openGameLosingModal, setOpenGameLosingModal } = useToggleGameLosingModal();
     const { elapsedTimer, countdownTimer, setElapsedTimer, setCountdownTimer } = useTimers(
         gameСountdownTimer,
-        isOpenCardModal
+        openMatchedCardModal
     );
     const [cardsListСompiled, setCardsListСompiled] = useState([]);
+
     const {
         movesCount,
         setMovesCount,
@@ -29,7 +33,7 @@ const useGameBoardState = () => {
         setFirstCard,
         setSecondCard,
         setOpenedCardsList,
-    } = useCardHandler(setOpenCardModal);
+    } = useCardHandler(setOpenMatchedCardModal);
 
     const { onClickResetGame } = useResetGame(
         gameState,
@@ -41,6 +45,17 @@ const useGameBoardState = () => {
         setFirstCard,
         setSecondCard,
         setOpenedCardsList
+    );
+
+    useCheckStatusGame(
+        gameState,
+        openMatchedCardModal,
+        cardsListСompiled,
+        openedCardsList,
+        countdownTimer,
+        elapsedTimer,
+        movesCount,
+        setOpenGameLosingModal
     );
 
     useEffect(() => {
@@ -58,9 +73,9 @@ const useGameBoardState = () => {
             const cardsList = [
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 1: Описание 1" },
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 2: Описание 2" },
-                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
-                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
-                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
+                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
                 // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 6: Описание 6" },
                 // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 7: Описание 7" },
                 // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 8: Описание 8" },
@@ -86,8 +101,10 @@ const useGameBoardState = () => {
         elapsedTimer,
         countdownTimer,
         cardsListСompiled,
-        isOpenCardModal,
-        setOpenCardModal,
+        openMatchedCardModal,
+        setOpenMatchedCardModal,
+        openGameLosingModal,
+        setOpenGameLosingModal,
         movesCount,
         firstCard,
         secondCard,
