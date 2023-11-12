@@ -1,22 +1,11 @@
 import classNames from "classnames";
-import { formatTime } from "utilities/formatTime";
+import { useSetRenderTimeType } from "./hooks/useSetRenderTimeType";
 
 import "./GameStatistics.scss";
 
 const GameStatistics = (props) => {
     const { className, movesCount, elapsedTimer, countdownTimer, gameСountdownTimer } = props;
-
-    const setRenderTimeType = (gameСountdownTimer, elapsedTimer, countdownTimer) => {
-        if (gameСountdownTimer && !countdownTimer) {
-            return formatTime(gameСountdownTimer * 60);
-        }
-
-        if (gameСountdownTimer && countdownTimer) {
-            return formatTime(countdownTimer);
-        }
-
-        return formatTime(elapsedTimer);
-    };
+    const { setRenderTimeType } = useSetRenderTimeType();
 
     return (
         <div className={`game-statistics ${classNames(className)}`}>

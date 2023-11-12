@@ -3,16 +3,20 @@ import { nanoid } from "@reduxjs/toolkit";
 import { useGameContext } from "context/useGameContext";
 import { useEffect, useState } from "react";
 import { useFetch } from "hooks/useFetch";
+import { useTimers } from "./useTimers";
 import { useToggleCardModal } from "./useToggleCardModal";
 import { useCardHandler } from "./useCardHandler";
+import { useResetGame } from "./useResetGame";
 
 const useGameBoardState = () => {
     const { player, gameFieldSize, gameСountdownTimer } = useGameContext();
     const { postFetch, getFetch } = useFetch();
     const [gameState, setGameState] = useState("init"); // init | reset | loaded
-    const [elapsedTimer, setElapsedTimer] = useState(null);
-    const [countdownTimer, setCountdownTimer] = useState(null);
     const { isOpenCardModal, setOpenCardModal } = useToggleCardModal();
+    const { elapsedTimer, countdownTimer, setElapsedTimer, setCountdownTimer } = useTimers(
+        gameСountdownTimer,
+        isOpenCardModal
+    );
     const [cardsListСompiled, setCardsListСompiled] = useState([]);
     const {
         movesCount,
@@ -27,19 +31,30 @@ const useGameBoardState = () => {
         setOpenedCardsList,
     } = useCardHandler(setOpenCardModal);
 
-    const cardListFetch = async () => {
-        const body = { player, cards_quantity: gameFieldSize };
-
-        const cardList = await postFetch(
-            "https://www.toptal.com/developers/postbin/1699728673203-7364212437532",
-            "games",
-            body
-        );
-    };
-    cardListFetch();
+    const { onClickResetGame } = useResetGame(
+        gameState,
+        setGameState,
+        gameСountdownTimer,
+        setElapsedTimer,
+        setCountdownTimer,
+        setMovesCount,
+        setFirstCard,
+        setSecondCard,
+        setOpenedCardsList
+    );
 
     useEffect(() => {
         if (gameState === "init" || gameState === "reset") {
+            const cardListFetch = async () => {
+                const body = { player, cards_quantity: gameFieldSize };
+
+                const cardList = await postFetch(
+                    "https://www.toptal.com/developers/postbin/1699728673203-7364212437532",
+                    "games",
+                    body
+                );
+            };
+
             const cardsList = [
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 1: Описание 1" },
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 2: Описание 2" },
@@ -64,47 +79,6 @@ const useGameBoardState = () => {
             setGameState("loaded");
         }
     }, [gameState]);
-
-    const onClickResetGame = () => {
-        setGameState("reset");
-    };
-
-    useEffect(() => {
-        if (gameState === "reset") {
-            setElapsedTimer(0);
-            if (gameСountdownTimer) {
-                setCountdownTimer(gameСountdownTimer * 60);
-            }
-            setMovesCount(0);
-            setFirstCard({ id: null, descr: null });
-            setSecondCard({ id: null, descr: null });
-            setOpenedCardsList({});
-        }
-    }, [gameState]);
-
-    useEffect(() => {
-        let intervalId;
-
-        const updateElapsedTimer = () => {
-            setElapsedTimer((prevElapsed) => prevElapsed + 1);
-        };
-
-        const updateCountdownTimer = () => {
-            setCountdownTimer((prevCountdown) => prevCountdown - 1);
-        };
-        if (!isOpenCardModal) {
-            if (!gameСountdownTimer) {
-                intervalId = setInterval(updateElapsedTimer, 1000);
-            } else {
-                if (!countdownTimer) {
-                    setCountdownTimer(gameСountdownTimer * 60);
-                }
-                intervalId = setInterval(updateCountdownTimer, 1000);
-            }
-        }
-
-        return () => clearInterval(intervalId);
-    }, [gameСountdownTimer, isOpenCardModal]);
 
     return {
         gameFieldSize,

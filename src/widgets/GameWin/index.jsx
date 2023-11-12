@@ -1,0 +1,1 @@
+export { GameWinPage } from "./GameWin";
