@@ -115,6 +115,7 @@ const useGameBoardState = () => {
         winnerCardDescr,
         onClickFlipCard,
         onClickResetGame,
+        player,
     };
 };
 

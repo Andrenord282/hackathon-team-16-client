@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGameBoardState } from "./hooks/useGameBoardState";
 import { Modal } from "components/Modal/Modal";
 import { GameStatistics } from "./components/GameStatistics/GameStatistics";
@@ -26,12 +26,18 @@ const GameBoard = () => {
         winnerCardDescr,
         onClickFlipCard,
         onClickResetGame,
+        player,
     } = useGameBoardState();
-
+    const navigate = useNavigate();
     const setClassWidthCardList = classNames({
         "size-m": cardsListСompiled.length <= 10,
         "size-l": cardsListСompiled.length > 10,
     });
+
+    if (!player) {
+        navigate("/");
+        return;
+    }
 
     return (
         <div className="game-board">
@@ -71,6 +77,7 @@ const GameBoard = () => {
                             })}
                     </div>
                     <GameStatistics
+                        player={player}
                         movesCount={movesCount}
                         elapsedTimer={elapsedTimer}
                         countdownTimer={countdownTimer}
