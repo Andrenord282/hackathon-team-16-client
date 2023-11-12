@@ -108,14 +108,14 @@ const GameEntry = () => {
                 <Link to={"/game-board"} className={`game-entry__btn ${setClassActivStartBtn}`}>
                     Играть
                 </Link>
-                <div className="game-entry__footer">
+                {/* <div className="game-entry__footer">
                     <Link to={"/game-rating"} className="game-entry__footer-link">
                         Рейтинг
                     </Link>
                     <Link to={"/game-about-us"} className="game-entry__footer-link">
                         O нас
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );
