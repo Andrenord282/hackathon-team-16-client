@@ -15,7 +15,8 @@ const MatchedСardModal = (props) => {
                 <div className="matched-card-modal__descr">
                     {cardDescr && cardDescr.subTitle.length === 2 && (
                         <p className="matched-card-modal__text">
-                            <span className="matched-card-modal__text-span">{cardDescr.subTitle[0]}</span> {cardDescr.subTitle[1]}
+                            <span className="matched-card-modal__text-span">{cardDescr.subTitle[0]}</span>{" "}
+                            {cardDescr.subTitle[1]}
                         </p>
                     )}
                     {cardDescr &&
@@ -42,7 +43,7 @@ const MatchedСardModal = (props) => {
                         cardDescr.links.length > 0 &&
                         cardDescr.links.map((text) => {
                             return (
-                                <a href={text[1]} key={text[1]} className="matched-card-modal__link">
+                                <a href={text[1]} key={text[1]} className="matched-card-modal__link" target="_blink">
                                     {text[0]}
                                 </a>
                             );
