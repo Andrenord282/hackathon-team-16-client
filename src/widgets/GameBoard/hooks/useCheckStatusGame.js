@@ -37,6 +37,12 @@ const useCheckStatusGame = (
         }
     }, [gameWinning, openMatchedCardModal]);
 
+    useEffect(() => {
+        if (countdownTimer === 0) {
+            setOpenGameLosingModal(true);
+        }
+    }, [countdownTimer]);
+
     // !!!ЭТО ЧИТКОДЫ ДЛЯ ОБУЗА ИГРЫ!!!!
     useEffect(() => {
         const handleKeyDown = (event) => {
