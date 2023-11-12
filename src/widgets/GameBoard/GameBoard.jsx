@@ -46,7 +46,7 @@ const GameBoard = () => {
             <div className="game-board__content">
                 <div className="game-board__head">
                     <div className="game-board__head-descr">
-                        <Link to={"/"} className="game-about-us__link">
+                        <Link to={"/"} className="game-board__link-title">
                             <h2 className="game-board__title">Memory Game</h2>
                         </Link>
                         <Link to={"/game-rating"} className="game-board__link">

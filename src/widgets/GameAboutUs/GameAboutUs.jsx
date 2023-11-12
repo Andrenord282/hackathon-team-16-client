@@ -8,7 +8,7 @@ const GameAboutUs = () => {
             <div className="game-about-us__content">
                 <div className="game-about-us__head">
                     <div className="game-about-us__head-descr">
-                        <Link to={"/"} className="game-about-us__link">
+                        <Link to={"/"} className="game-about-us__link-title">
                             <h2 className="game-about-us__title">Memory Game</h2>
                         </Link>
                         <Link to={"/game-rating"} className="game-about-us__link">
@@ -19,9 +19,7 @@ const GameAboutUs = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="game-about-us__body">
-                    <p> Карточная игра, где нужно попарно открыть все карточки за наименьшее количество ходов.</p>
-                </div>
+                <div className="game-about-us__body"></div>
             </div>
         </div>
     );

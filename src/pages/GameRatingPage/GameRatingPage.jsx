@@ -4,9 +4,9 @@ import "./GameRatingPage.scss";
 
 const GameRatingPage = () => {
     return (
-        <div className="game-rating">
-            <div className="game-rating__container">
-                <div className="game-rating__content">
+        <div className="game-rating-page">
+            <div className="game-rating-page__container">
+                <div className="game-rating-page__content">
                     <GameRating />
                 </div>
             </div>
