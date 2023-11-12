@@ -13,7 +13,7 @@ const MatchedСardModal = (props) => {
             <h3 className="matched-card-modal__title">{cardDescr.title}</h3>
             <div className="matched-card-modal__body">
                 <div className="matched-card-modal__descr">
-                    {cardDescr && cardDescr.subTitle.length === 2 && (
+                    {cardDescr && cardDescr.subTitle && cardDescr.subTitle.length === 2 && (
                         <p className="matched-card-modal__text">
                             <span className="matched-card-modal__text-span">{cardDescr.subTitle[0]}</span>{" "}
                             {cardDescr.subTitle[1]}

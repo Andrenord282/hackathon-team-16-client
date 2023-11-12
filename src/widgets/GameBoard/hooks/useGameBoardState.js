@@ -1,5 +1,5 @@
 import { shuffled } from "utilities/shuffled";
-import { nanoid } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 import { useGameContext } from "context/useGameContext";
 import { useEffect, useState } from "react";
 import { useTimers } from "./useTimers";
