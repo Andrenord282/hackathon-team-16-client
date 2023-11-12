@@ -72,14 +72,14 @@ const useGameBoardState = () => {
 
             const cardsList = [
                 { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 1: Описание 1" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 2: Описание 2" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 6: Описание 6" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 7: Описание 7" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 8: Описание 8" },
-                // { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 9: Описание 9" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 2: Описание 2" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 3: Описание 3" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 4: Описание 4" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 5: Описание 5" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 6: Описание 6" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 7: Описание 7" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 8: Описание 8" },
+                { id: nanoid(5), src: "https://via.placeholder.com/150", descr: "Карта 9: Описание 9" },
             ].slice(0, gameFieldSize / 2);
 
             console.log(cardsList);

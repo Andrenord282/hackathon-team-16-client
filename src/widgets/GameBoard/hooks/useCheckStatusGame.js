@@ -37,11 +37,21 @@ const useCheckStatusGame = (
         }
     }, [gameWinning, openMatchedCardModal]);
 
+    // !!!ЭТО ЧИТКОДЫ ДЛЯ ОБУЗА ИГРЫ!!!!
     useEffect(() => {
-        if (countdownTimer === 0) {
-            setOpenGameLosingModal(true);
-        }
-    }, [countdownTimer]);
+        const handleKeyDown = (event) => {
+            if (event.key === "A") {
+                setGameWinning(true);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
+    // !!!-------------------------------------!!!!
 };
 
 export { useCheckStatusGame };
