@@ -12,7 +12,10 @@ const useCardHandler = (setOpenCardModal) => {
         switch (true) {
             case firstCard.id && secondCard.id && firstCard.name === secondCard.name:
                 setTimeout(() => {
-                    setMathesCardDescr({ id: firstCard.id, name: firstCard.name });
+                    setMathesCardDescr({
+                        id: firstCard.id,
+                        name: firstCard.name,
+                    });
                     setOpenCardModal(true);
                     setMovesCount((prevCount) => prevCount + 1);
                     setOpenedCardsList({

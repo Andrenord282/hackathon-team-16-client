@@ -26,7 +26,7 @@ const GameWin = () => {
                     <p className="game-win__descr-text">
                         Узнать о проблеме — первый шаг к реальным переменам. Теперь, когда ты узнал больше о сиротстве,
                         давайте превратим знание{" "}
-                        <a href="https://docs.google.com/document/d/1ilDuHz-TFXP_ID6eBZvFRqnb8emcTq2Jy1KeA5S2z_g/edit">
+                        <a href="https://docs.google.com/document/d/1ilDuHz-TFXP_ID6eBZvFRqnb8emcTq2Jy1KeA5S2z_g/edit" target="_blank">
                             в действие
                         </a>
                         .

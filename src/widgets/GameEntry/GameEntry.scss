@@ -1,8 +1,10 @@
 .game-entry {
     width: 100%;
     max-width: 700px;
-    padding: 72px 105px 62px 105px;
-    background-color: #f7f4f2;
+    padding: 72px 105px 22px 105px;
+    border-radius: 30px;
+    border: 10px solid #dedede;
+    background: #f9f7f6;
 }
 
 .game-entry__content {
@@ -22,7 +24,7 @@
 .game-entry__descr {
     font-family: "IBM Plex Sans", sans-serif;
     color: #000;
-    text-align: center;
+    text-align: left;
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
@@ -112,7 +114,7 @@
 
 .game-entry__btn {
     width: 100%;
-    max-width: 488px;
+    max-width: 350px;
     display: block;
     color: #fff;
     font-family: IBM Plex Sans;
@@ -126,9 +128,9 @@
     text-decoration: none;
     opacity: 0.4;
     pointer-events: none;
-    margin: 0 auto;
+    margin-right: auto;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .game-entry__btn.active {
@@ -138,7 +140,7 @@
 
 .game-entry__footer {
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 .game-entry__footer-link {

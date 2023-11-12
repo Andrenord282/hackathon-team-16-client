@@ -1,6 +1,5 @@
 import classNames from "classnames";
-
-import cover from "assets/img/cover.jpg";
+import cover from "assets/img/cover.png";
 
 import * as Cards from "assets/img/cards";
 

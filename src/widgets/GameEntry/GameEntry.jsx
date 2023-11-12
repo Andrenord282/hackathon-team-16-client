@@ -27,7 +27,7 @@ const GameEntry = () => {
                 </div>
                 <div className="game-entry__setting">
                     <div className="game-entry__setting-set-user">
-                        <span className="game-entry__setting-subtitle">Как тебя называть?</span>
+                        <span className="game-entry__setting-subtitle">Ник или имя</span>
                         <input
                             ref={userNameInputRef}
                             value={player}
@@ -106,7 +106,7 @@ const GameEntry = () => {
                     </div>
                 </div>
                 <Link to={"/game-board"} className={`game-entry__btn ${setClassActivStartBtn}`}>
-                    Начать игру
+                    Играть
                 </Link>
                 <div className="game-entry__footer">
                     <Link to={"/game-rating"} className="game-entry__footer-link">

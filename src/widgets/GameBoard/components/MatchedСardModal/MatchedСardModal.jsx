@@ -1,17 +1,32 @@
+import { cardList } from "utilities/data";
+import * as Cards from "assets/img/cards";
 import "./MatchedСardModal.scss";
 
 const MatchedСardModal = (props) => {
-    const { winnerCardDescr, setOpenMatchedCardModal } = props;
+    const { mathetCardDescr, setOpenMatchedCardModal } = props;
+
+    const cardDescr = cardList.find((card) => card.name === mathetCardDescr.name);
+    const imgScr = Cards[mathetCardDescr.name];
 
     return (
         <div className="matched-card-modal">
-            <h3 className="matched-card-modal__title">Я заголовок</h3>
-            {/* <p className="winner-item__text">{winnerCardDescr.descr}</p> */}
-            <p className="matched-card-modal__text">
-                Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности требуют от нас
-                анализа дальнейших направлений развития. Задача организации, в особенности же начало повседневной работы
-                по формированию позиции позволяет выполнять важные задания по разработке систем массового участия.
-            </p>
+            <h3 className="matched-card-modal__title">{cardDescr.title}</h3>
+            <div className="matched-card-modal__body">
+                <div className="matched-card-modal__descr">
+                    {cardDescr &&
+                        cardDescr.descr.length > 0 &&
+                        cardDescr.descr.map((text) => {
+                            return (
+                                <p key={text} className="matched-card-modal__text">
+                                    {text}
+                                </p>
+                            );
+                        })}
+                </div>
+                <div className="matched-card-modal__item-img">
+                    <img src={imgScr} className="matched-card-modal__text-img" alt="" />
+                </div>
+            </div>
 
             <button
                 className="matched-card-modal__btn"

@@ -16,6 +16,15 @@
     margin-bottom: 30px;
 }
 
+.matched-card-modal__body {
+    display: flex;
+    align-items: flex-start;
+}
+
+.matched-card-modal__descr {
+    flex: 1 1 auto;
+}
+
 .matched-card-modal__text {
     color: #000;
     font-family: IBM Plex Sans;
@@ -27,6 +36,23 @@
 
 .matched-card-modal__text:not(:last-child) {
     margin-bottom: 10px;
+}
+
+.matched-card-modal__item-img {
+    flex: 0 0 140px;
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin-top: -15px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.matched-card-modal__text-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .matched-card-modal__btn {

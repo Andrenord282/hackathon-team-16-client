@@ -24,7 +24,7 @@ const GameBoard = () => {
         firstCard,
         secondCard,
         openedCardsList,
-        winnerCardDescr,
+        mathetCardDescr,
         onClickFlipCard,
         onClickResetGame,
         player,
@@ -91,7 +91,7 @@ const GameBoard = () => {
                 </div>
                 <Modal isOpen={openMatchedCardModal}>
                     <MatchedСardModal
-                        winnerCardDescr={winnerCardDescr}
+                        mathetCardDescr={mathetCardDescr}
                         setOpenMatchedCardModal={setOpenMatchedCardModal}
                     />
                 </Modal>
